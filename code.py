@@ -1,8 +1,9 @@
+reqs = ["gym", "school", "store"]
 blocks = [
 {
     "gym": False,
     "school": True,
-    "store": False,
+    "store": True,
 },
 {
     "gym": True,
@@ -12,7 +13,7 @@ blocks = [
 {
     "gym": True,
     "school": True,
-    "store": False,
+    "store": True,
 },
 {
     "gym": False,
@@ -20,17 +21,23 @@ blocks = [
     "store": False,
 },
 {
-"gym": False,
-"school": True,
-"store": True,
+    "gym": False,
+    "school": True,
+    "store": True,
 }
 ]
-reqs = ["gym", "school", "store"]
+count=0
 def apartmentHunting(blocks, reqs):
-    import statistics
+    count=0
     lt=list()
-    for i in range(len(blocks)):
-            for j in reqs:
-                if(blocks[i][j]==True):
-                    lt.append(i)
-    print(statistics.mode(lt))
+    for i in range(0,len(blocks)):
+        for j in reqs:
+            if(blocks[i][j]==True):
+                lt.append(i)
+    for i in lt:
+        freq = lt.count(i)
+        if(freq> count):
+            count = freq
+            num = i
+    print(num)
+apartmentHunting(blocks,reqs)
